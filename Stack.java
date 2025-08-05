@@ -1,70 +1,51 @@
-import java.util.Scanner;
+import java.util.*;  
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+class Main {
+    public final int max = 4;
+    public int[] arr = new int[max];
+    public int tos = -1;
 
-        System.out.print("Enter max size of the stack: ");
-        int size = sc.nextInt();
-        int[] stack = new int[size];
-        int top = -1;
-
-        while (true) {
-            System.out.println("\nMenu:");
-            System.out.println("1. Push");
-            System.out.println("2. Pop");
-            System.out.println("3. Peek");
-            System.out.println("4. Display");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            int ch = sc.nextInt();
-
-            if (ch == 1) {
-                if (top == size - 1) {
-                    System.out.println("Stack is full (overflow)");
-                } else {
-                    System.out.print("Enter number to push: ");
-                    int num = sc.nextInt();
-                    top++;
-                    stack[top] = num;
-                    System.out.println(num + " pushed into stack.");
-                }
-
-            } else if (ch == 2) {
-                if (top == -1) {
-                    System.out.println("Stack is empty (underflow)");
-                } else {
-                    System.out.println("Popped: " + stack[top]);
-                    top--;
-                }
-
-            } else if (ch == 3) {
-                if (top == -1) {
-                    System.out.println("Stack is empty");
-                } else {
-                    System.out.println("Top element: " + stack[top]);
-                }
-
-            } else if (ch == 4) {
-                if (top == -1) {
-                    System.out.println("Stack is empty");
-                } else {
-                    System.out.println("Stack elements:");
-                    for (int i = 0; i <= top; i++) {
-                        System.out.print(stack[i] + " ");
-                    }
-                    System.out.println();
-                }
-
-            } else if (ch == 5) {
-                System.out.println("Program ended.");
-                break;
-
-            } else {
-                System.out.println("Invalid option. Try again.");
-            }
+    public void push(int data) {
+        if (tos == max - 1) {
+            System.out.println("Stack is overflowed");
+            return;
         }
+        tos++;
+        arr[tos] = data;
+        System.out.println("Pushed = " + data);
+    }
 
-        sc.close();
+    public void pop() {
+        if (tos == -1) {
+            System.out.println("Stack is underflowed");
+            return;
+        }
+        System.out.println("Popped = " + arr[tos]);
+        tos--;
+    }
+
+    public void display() {
+        if (tos == -1) {
+            System.out.println("Stack is empty");
+            return;
+        }
+    }
+    public void peep(){
+        System.out.println("Top Element="+arr[tos]);
+    } public static void main(String[] args) {
+        Main stack = new Main();
+        stack.push(11);
+        stack.push(22);
+        stack.push(33);
+        stack.push(44);
+        stack.push(55);
+        stack.push(66);
+        stack.push(77);
+        stack.push(88); 
+        stack.push(99);
+        stack.pop();
+        stack.pop();
+        stack.peep();
     }
 }
+

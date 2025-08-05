@@ -31,7 +31,6 @@ public class Main {
                 }
 
             } else if (ch == 2) {
-                // Pop operation
                 if (top == -1) {
                     System.out.println("Stack is empty (underflow)");
                 } else {
@@ -40,7 +39,6 @@ public class Main {
                 }
 
             } else if (ch == 3) {
-                // Peek operation
                 if (top == -1) {
                     System.out.println("Stack is empty");
                 } else {
